@@ -15,6 +15,7 @@ feature 'User Authentication' do
 
     expect(page).to have_text('Thank you for signing up Bob')
     expect(page).to have_text('Signed in as Bob')
+    expect(page).to have_text('Dashboard Welcome!')
   end
 
   scenario 'allows existing users to login' do
@@ -30,6 +31,7 @@ feature 'User Authentication' do
     click_button 'Login'
     expect(page).to have_text("Welcome back #{user.name.titleize}")
     expect(page).to have_text("Signed in as #{user.name}")
+    expect(page).to have_text('Dashboard Welcome!')
   end
 
   scenario 'does not allow existing users to login with an invalid password' do
@@ -67,4 +69,5 @@ feature 'User Authentication' do
     expect(page).to have_text("#{user.name} has been logged out.")
     expect(page).to_not have_text("Welcome back #{user.name.titleize}")
   end
+
 end
