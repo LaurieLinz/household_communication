@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_chore_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Chore
+  <% end %>
+  <h1>Listing chores</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Chore name</th>
+            <th>Description</th>
+            <th>User to complete</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @chores) do |chore| %>
+            <td><%= chore.chore_name %></td>
+            <td><%= chore.description %></td>
+            <td><%= chore.user_to_complete %></td>
+            <td><%= link_to 'Show', chore %></td>
+        <td><%= link_to 'Edit', edit_chore_path(chore) %></td>
+        <td><%= link_to 'Destroy', chore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
