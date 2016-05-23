@@ -14,17 +14,18 @@ feature 'Chores' do
     expect(page).to have_text("Welcome back #{user.name.titleize}")
     expect(page).to have_text("Signed in as #{user.name}")
     expect(page).to have_text('Dashboard Welcome!')
-    expect(page).to have_text('Listing Chores')
 
-    click_button('New Chore')
-    fill_in 'Chore Name', with: 'vaccum'
+
+    click_link('New Chore')
+
+    fill_in 'Chore name', with: 'vaccum'
     fill_in 'Description', with: 'living room'
     fill_in 'User to complete', with: 'Bob'
 
     click_button 'Create Chore'
-    expect(page).to have_text('Dashboard Welcome!')
-    expect(page).to have_text('Listing Chores')
+    click_link 'Back'
+    expect(page).to have_text('Listing chores')
     expect(page).to have_text('vaccum')
-    
+
   end
 end

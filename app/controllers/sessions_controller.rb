@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:id] = user.id
-      redirect_to dashboard_path,
+      redirect_to chores_path,
         notice: "Welcome back #{user.name.titleize}"
     else
       flash[:error] = 'Invalid email or password'

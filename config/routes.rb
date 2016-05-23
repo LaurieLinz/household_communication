@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#login'
   post 'login' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get 'dashboard' => 'welcome#dashboard'
+  get 'chores' => 'chores#index'
 
 
   # Example of regular route:
